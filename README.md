@@ -11,7 +11,7 @@
 
 ## Install with HACS
 
-1. In HACS, open the three-dot menu, choose **Custom repositories**, then add `https://git.napper.au/napper/up-ha` as an **Integration**.
+1. In HACS, open the three-dot menu, choose **Custom repositories**, then add `https://github.com/kadennapper/up-ha` as an **Integration**.
 2. Search for **Up Banking**, install it, then restart Home Assistant.
 3. Go to **Settings → Devices & services → Add integration**, select **Up Banking**, and enter an Up personal access token from the [Up developer portal](https://developer.up.com.au/).
 4. Select the accounts to expose. Open the integration's **Configure** option later to change that selection.
