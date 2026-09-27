@@ -5,8 +5,8 @@
   "integration_type": "hub",
   "iot_class": "cloud_polling",
   "version": "0.1.0",
-  "documentation": "https://git.napper.au/klnap0/up-ha",
-  "issue_tracker": "https://git.napper.au/klnap0/up-ha/issues",
-  "codeowners": ["@klnap0"],
+  "documentation": "https://git.napper.au/napper/up-ha",
+  "issue_tracker": "https://git.napper.au/napper/up-ha/issues",
+  "codeowners": ["@napper"],
   "requirements": []
 }
