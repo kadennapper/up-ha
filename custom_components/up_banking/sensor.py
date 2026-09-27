@@ -6,13 +6,12 @@ from typing import Any
 
 from homeassistant.components.sensor import SensorDeviceClass, SensorEntity, SensorStateClass
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CURRENCY_AUSTRALIAN_DOLLAR
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import DOMAIN
+from .const import CURRENCY_CODE, DOMAIN
 from .coordinator import UpCoordinator
 
 
@@ -24,7 +23,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_e
 class UpBalanceSensor(CoordinatorEntity[UpCoordinator], SensorEntity):
     _attr_device_class = SensorDeviceClass.MONETARY
     _attr_state_class = SensorStateClass.TOTAL
-    _attr_native_unit_of_measurement = CURRENCY_AUSTRALIAN_DOLLAR
+    _attr_native_unit_of_measurement = CURRENCY_CODE
     _attr_has_entity_name = True
 
     def __init__(self, coordinator: UpCoordinator, account_id: str) -> None:

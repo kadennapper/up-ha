@@ -10,3 +10,5 @@ DEFAULT_SCAN_INTERVAL = timedelta(minutes=5)
 STORAGE_VERSION = 1
 STORAGE_KEY = f"{DOMAIN}.seen_transactions"
 API_URL = "https://api.up.com.au/api/v1"
+# Home Assistant's monetary device class requires the ISO 4217 code internally.
+CURRENCY_CODE = "AUD"
