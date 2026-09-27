@@ -4,7 +4,7 @@
 
 ## What it provides
 
-- One AUD balance sensor for each account selected during setup, including Savers and 2Up (joint) accounts.
+- One $ balance sensor for each account selected during setup, including Savers and 2Up (joint) accounts.
 - Stable entity identity based on Up's account ID, so changing an account name does not create a new entity.
 - The `up_banking_transaction` Home Assistant event for new activity. Its compact data includes `transaction_id`, `event_type` (`created`, `settled`, or `deleted`), `status` (`held`, `settled`, or `deleted`), `account_id`, `amount`, `currency`, `description`, and `created_at`.
 - A five-minute coordinated poll. It reads changed activity since the last successful poll, so a Home Assistant restart or brief outage catches up. It retains at most 500 small de-duplication records in HA storage and does **not** put transaction history on entities or into Recorder attributes.
@@ -36,7 +36,7 @@ automation:
         data:
           message: >-
             {{ trigger.event.data.description }}:
-            {{ trigger.event.data.amount }} {{ trigger.event.data.currency }}
+            {{ trigger.event.data.currency }}{{ trigger.event.data.amount }}
 ```
 
 Amounts use Up's signed decimal representation: an outgoing purchase is normally negative.

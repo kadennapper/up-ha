@@ -59,7 +59,10 @@ class UpCoordinator(DataUpdateCoordinator[dict[str, dict[str, Any]]]):
         for tx_id, saved in list(self._seen.items()):
             if saved["status"] != "HELD":
                 continue
-            current = await self.api.transaction(tx_id)
+            try:
+                current = await self.api.transaction(tx_id)
+            except UpApiError as err:
+                raise UpdateFailed(str(err)) from err
             if current is None:
                 # A held item that no longer exists was deleted by Up.
                 payload = dict(saved["event"])

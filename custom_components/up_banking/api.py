@@ -44,7 +44,7 @@ class UpApi:
                 if response.status >= 400:
                     raise UpApiError(f"Up API request failed ({response.status})")
                 return (await response.json())["data"]
-        except aiohttp.ClientError as err:
+        except (aiohttp.ClientError, TimeoutError) as err:
             raise UpApiError("Unable to reach the Up API") from err
 
     async def _list(
@@ -70,5 +70,5 @@ class UpApi:
                 if response.status >= 400:
                     raise UpApiError(f"Up API request failed ({response.status})")
                 return await response.json()
-        except aiohttp.ClientError as err:
+        except (aiohttp.ClientError, TimeoutError) as err:
             raise UpApiError("Unable to reach the Up API") from err
